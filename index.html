@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,48 +23,192 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="RC Garage – De plek voor RC fans!" />
     <meta name="twitter:description" content="Sluit je aan bij RC Garage – de Discord community voor alles wat met RC te maken heeft." />
-    <meta name="twitter:image" content="https://rcgarage.nl/assets/img/rc-garage-1024x950.png" />
+    <meta name="twitter:image" content="https://rc-garage.nl/assets/img/rc-garage-1024x950.png" />
 
     <link href="/assets/css/output.css" rel="stylesheet">
 
     <!-- Plausible -->
-    <script defer data-domain="rcgarage.nl" src="https://analytics.heapreaper.nl/js/script.outbound-links.js"></script>
+    <script defer data-domain="rc-garage.nl" src="https://analytics.heapreaper.nl/js/script.outbound-links.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
     <script src="/assets/js/app.js"></script>
   </head>
 
-  <body class="bg-gray-800 text-white min-h-screen flex flex-col">
-
-  <nav class="flex justify-between items-center px-6 py-4 bg-gray-900 shadow-md">
-      <div class="flex items-center gap-3">
-        <img src="/assets/img/rc-garage.png" alt="RC Garage Logo" class="h-9 w-9" />
-        <a href="/" class="text-xl font-bold text-white">
-          RC Garage
-        </a>
-      </div>
-      <div class="flex gap-4 items-center">
-        <a href="https://docs.rcgarage.nl" class="text-white hover:text-gray-300">
-          Docs
-        </a>
-        <a href="https://discord.gg/jHBFgAdbne" target="_blank" class="bg-blue-900 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded">
-          Join Discord
-        </a>
-      </div>
-    </nav>
-
-    <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
-      <h1 class="text-4xl sm:text-5xl font-bold text-rc-garage-primary mb-4">Welkom bij <span class="text-blue-900 hover:text-red-600">RC Garage</span></h1>
-      <p class="text-lg text-gray-300 max-w-2xl mb-6">
-        Dé plek voor liefhebbers van radiografisch vliegen, rijden, varen en bouwen! Of je nu hulp zoekt, tips wilt delen, of gewoon je nieuwste RC-project wilt showen – je bent hier aan het juiste adres.
+  <body class="bg-black text-white font-sans"> <!-- bg-gradient-to-b from-gray-950 to-black -->
+    <!-- Hero Section -->
+    <section class="text-center py-20 bg-gradient-to-b">
+      <h1 class="text-5xl font-bold mb-4">
+        RC Garage
+      </h1>
+      <p class="text-lg text-gray-300 mb-8">
+        <span class="font-bold">Dé</span> Nederlandse Discord community voor alles wat met RC te maken heeft.
       </p>
-      <a href="https://discord.gg/jHBFgAdbne" target="_blank" class="bg-blue-900 hover:bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg transition">
+      <a
+        href="https://discord.gg/jHBFgAdbne"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition "
+      >
         Word lid van onze Discord
       </a>
-    </main>
+    </section>
 
-    <footer class="text-center text-gray-500 py-6 text-sm bg-gray-900">
-      © <span id="footerYear"></span> RC Garage. Alle rechten voorbehouden.
+    <!-- Feature Blocks -->
+    <section class="max-w-5xl mx-auto py-16 px-8 space-y-24">
+      <!-- Auto Chat -->
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <img src="/assets/img/chat/auto-chat.png" alt="Auto Chat" class="w-full md:w-1/2 rounded-2xl shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]" />
+        <div class="md:w-1/2 text-center md:text-left">
+          <h2 class="text-3xl font-bold mb-3">
+            <a href="https://discord.gg/9YNpYpuH9r" target="_blank" class="hover:text-blue-700 underline" style="text-decoration-color: #1D4ED8;">
+              # Auto's
+            </a>
+          </h2>
+          <p class="text-gray-300">
+            Van drift tot offroad, nitro of Elektro, kom praten over jouw favoriete RC auto’s en deel je setups!
+          </p>
+        </div>
+      </div>
+
+      <!-- Drone Chat -->
+      <div class="flex flex-col-reverse md:flex-row items-center gap-10">
+        <div class="md:w-1/2 text-center md:text-right">
+          <h2 class="text-3xl font-bold mb-3">
+            <a href="" target="_blank" class="hover:text-blue-700 underline" style="text-decoration-color: #1D4ED8;">
+              # Drones
+            </a>
+          </h2>
+          <p class="text-gray-300">
+            Racers, DJI of freestyle, laat je FPV-creaties zien en vraag advies aan anderen.
+          </p>
+        </div>
+        <img src="/assets/img/chat/drone-chat-2.png" alt="Drone Chat" class="w-full md:w-1/2 rounded-2xl shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]" />
+      </div>
+
+      <!-- Airplane Chat -->
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <img src="/assets/img/chat/vliegtuigen-chat.png" alt="Vliegtuig Chat" class="w-full md:w-1/2 rounded-2xl shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]" />
+        <div class="md:w-1/2 text-center md:text-left">
+          <h2 class="text-3xl font-bold mb-3">
+            <a href="" target="_blank" class="hover:text-blue-700 hover:underline">
+              # Vliegtuigen
+            </a>
+          </h2>
+          <p class="text-gray-300">
+            Of je nu een warbird, trainer of 3D foamie vliegt, deel je passie met anderen.
+          </p>
+        </div>
+      </div>
+
+      <!-- Heli Chat -->
+      <div class="flex flex-col-reverse md:flex-row items-center gap-10">
+        <div class="md:w-1/2 text-center md:text-right">
+          <h2 class="text-3xl font-bold mb-3">
+            <a href="" target="_blank" class="hover:text-blue-700 underline" style="text-decoration-color: #1D4ED8;">
+              # Helikopters
+            </a>
+          </h2>
+          <p class="text-gray-300">
+            Van 450 tot 700 class, klets mee over tuning, crashes en vliegtechniek.
+          </p>
+        </div>
+        <img src="/assets/img/chat/helikopter-chat.png" alt="Helikopter Chat" class="w-full md:w-1/2 rounded-2xl shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]" />
+      </div>
+
+      <!-- Boat Chat -->
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <img src="/assets/img/chat/boot-chat.png" alt="Boot Chat" class="w-full md:w-1/2 rounded-2xl shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]" />
+        <div class="md:w-1/2 text-center md:text-left">
+          <h2 class="text-3xl font-bold mb-3">
+            <a href="" target="_blank" class="hover:text-blue-700 underline" style="text-decoration-color: #1D4ED8;">
+              # Boten
+            </a>
+          </h2>
+          <p class="text-gray-300">
+            Van snelle raceboten tot schaalmodellen, bespreek je builds, motoren en vaarervaringen met andere enthousiastelingen.
+          </p>
+        </div>
+      </div>
+
+      <!-- RC fails Chat -->
+      <div class="flex flex-col-reverse md:flex-row items-center gap-10">
+        <div class="md:w-1/2 text-center md:text-right">
+          <h2 class="text-3xl font-bold mb-3">
+            <a href="" target="_blank" class="hover:text-blue-700 underline" style="text-decoration-color: #1D4ED8;"">
+              # RC fails
+            </a>
+          </h2>
+          <p class="text-gray-300">
+            Heb je net je drone een boom in geparkeerd? Je auto gelanceerd als een raket? Of je vliegtuig onbedoeld geland in de vijver? Deel hier al je hilarische, pijnlijke en leerzame RC-fails. Video’s, foto's of verhalen. Laat zien dat fouten maken ook gewoon bij de hobby hoort!
+          </p>
+        </div>
+        <img src="/assets/img/chat/rc-fails-chat.png" alt="Helikopter Chat" class="w-full md:w-1/2 rounded-2xl shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]" />
+      </div>
+
+      <!-- Picture game Chat -->
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <img src="/assets/img/chat/fotowedstrijd-chat.png" alt="Boot Chat" class="w-full md:w-1/2 rounded-2xl shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]" />
+        <div class="md:w-1/2 text-center md:text-left">
+          <h2 class="text-3xl font-bold mb-3">
+            <a href="" target="_blank" class="hover:text-blue-700 underline" style="text-decoration-color: #1D4ED8;">
+              # Fotowedstrijd
+            </a>
+          </h2>
+          <p class="text-gray-300">
+            Hier laten we onze mooie RC modellen zien! Van vliegtuigen op het veld tot een close op van een nitro drifter.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Management Section  -->
+    <section class="max-w-5xl mx-auto py-20 px-8 text-center">
+      <h2 class="text-4xl font-bold mb-12">Het team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+        <!-- Member one -->
+        <div class="flex flex-col items-center">
+          <img src="/assets/img/team/heapreaper.png" alt="Voorzitter" class="w-32 h-32 rounded-full mb-4 shadow-lg " />
+          <h3 class="text-xl font-semibold">
+            Kelvin de Reus
+          </h3>
+          <p class="text-sm text-gray-400">
+            Eigenaar & technisch beheer
+          </p>
+        </div>
+
+        <!-- Member two -->
+        <div class="flex flex-col items-center">
+          <!-- <img src="/assets/img/bestuur/mod.jpg" alt="Moderator" class="w-32 h-32 rounded-full mb-4 shadow-lg" />-->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-blue-700" style="max-width: 140px;">
+            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+          </svg>
+
+          <h3 class="text-xl font-semibold">
+            Gezocht
+          </h3>
+          <p class="text-sm text-gray-400">
+            Moderator
+          </p>
+        </div>
+
+        <!-- Member three -->
+        <div class="flex flex-col items-center">
+          <img src="/assets/img/team/bot.png" alt="Tech" class="w-32 h-32 rounded-full mb-4 shadow-lg" />
+          <h3 class="text-xl font-semibold">
+            BlipBlop
+          </h3>
+          <p class="text-sm text-gray-400">
+            In-house bot & hulp moderator dankzei
+            <a href="https://pawtect.nl" class="underline" style="text-decoration-color: #1D4ED8;">
+              Pawtect
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="text-center py-10 text-gray-500 text-sm">
+      &copy; <span id="footerYear"></span> RC Garage - Voor en door de community
     </footer>
   </body>
 </html>
