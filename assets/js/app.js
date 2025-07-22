@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('footerYear').innerHTML = (new Date()).getFullYear();
+    document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();
 })
