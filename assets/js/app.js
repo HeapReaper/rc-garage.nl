@@ -11,6 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
         '/assets/img/hero/omp-heli-bg.png',
     ];
 
+    function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+
+    shuffleArray(images);
+
     images.forEach((src) => {
         const slide = document.createElement("div");
         slide.style.backgroundImage = `url('${src}')`;
