@@ -16,3 +16,7 @@
   box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
   filter: drop-shadow(0 0 20px rgba(99,102,241,0.6));
 }
+
+.hero-background {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('/assets/img/rc-cars-bg.jpg') center / cover no-repeat;
+}
