@@ -198,6 +198,12 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
+  .top-2 {
+    top: calc(var(--spacing) * 2);
+  }
+  .right-2 {
+    right: calc(var(--spacing) * 2);
+  }
   .z-0 {
     z-index: 0;
   }
@@ -228,8 +234,17 @@
   .grid {
     display: grid;
   }
+  .inline-block {
+    display: inline-block;
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
   .h-32 {
     height: calc(var(--spacing) * 32);
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
   }
   .w-32 {
     width: calc(var(--spacing) * 32);
@@ -518,6 +533,37 @@
   background-position: center;
   flex-shrink: 0;
   transition: all 1s ease-in-out;
+}
+.status-indicator {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 8px rgb(139 92 246 / 0.7);
+  background-color: #22c55e;
+  animation: blink 1.5s infinite;
+  z-index: 10;
+}
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+.status-online {
+  background-color: #22c55e;
+  animation: blink 1.5s infinite;
+}
+.status-idle {
+  background-color: #f59e0b;
+  animation: blink 1.5s infinite;
+}
+.status-offline {
+  background-color: #ef4444;
+  animation: blink 1.5s infinite;
 }
 @property --tw-rotate-x {
   syntax: "*";
