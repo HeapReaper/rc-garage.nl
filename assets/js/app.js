@@ -82,5 +82,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     void updateStatus();
 
-    setInterval(updateStatus, 60 * 1000);
+    setInterval(updateStatus, 29 * 1000);
 })
