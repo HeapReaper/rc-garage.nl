@@ -562,7 +562,7 @@
   animation: blink 1.5s infinite;
 }
 .status-offline {
-  background-color: #ef4444;
+  background-color: #8B0000;
   animation: blink 1.5s infinite;
 }
 @property --tw-rotate-x {
