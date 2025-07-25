@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();
 
+    // Slider
     const slider = document.querySelector('.background-slider');
 
     const images = [
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(slideNext, 4000);
 
+    // Who's online?
     async function updateStatus() {
         try {
             const res = await fetch('https://blibblop-api.rc-garage.nl/user-statussen');
@@ -81,6 +83,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     void updateStatus();
+
+    async function updateCommunityStats() {
+        const res = await fetch('https://blibblop-api.rc-garage.nl/stats/guild');
+        const data = await res.json();
+
+        const memberCount = document.getElementById('memberCount').innerHTML = data.memberCount;
+        const onlineCount = document.getElementById('onlineCount').innerHTML = data.membersOnline;
+        const lastJoined = document.getElementById('lastJoined').innerHTML = data.lastJoined;
+        const boostCount = document.getElementById('boostCount').innerHTML = data.boostCount;
+    }
+
+    void updateCommunityStats();
 
     setInterval(updateStatus, 29 * 1000);
 })
