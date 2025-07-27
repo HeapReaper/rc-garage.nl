@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();
 
@@ -84,17 +85,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     void updateStatus();
 
-    async function updateCommunityStats() {
-        const res = await fetch('https://blibblop-api.rc-garage.nl/stats/guild');
-        const data = await res.json();
-
-        const memberCount = document.getElementById('memberCount').innerHTML = data.memberCount;
-        const onlineCount = document.getElementById('onlineCount').innerHTML = data.membersOnline;
-        const lastJoined = document.getElementById('lastJoined').innerHTML = data.lastJoined;
-        const boostCount = document.getElementById('boostCount').innerHTML = data.boostCount;
-    }
-
-    void updateCommunityStats();
-
     setInterval(updateStatus, 29 * 1000);
 })
+
+// Stats
+window.addEventListener('DOMContentLoaded', async () => {
+    const res = await fetch('https://blibblop-api.rc-garage.nl/stats/guild');
+    const data = await res.json();
+
+    const memberCount = new countUp.CountUp('memberCount', data.memberCount, { enableScrollSpy: true });
+    memberCount ? memberCount.start() : console.error(`Could not start memberCount: ${memberCount.error}`);
+
+    const onlineCount = new countUp.CountUp('onlineCount', data.membersOnline, { enableScrollSpy: true });
+    onlineCount ? onlineCount.start() : console.error(`Could not start memberCount: ${onlineCount.error}`);
+
+    const boostCount = new countUp.CountUp('boostCount', data.boostCount, { enableScrollSpy: true });
+    boostCount ? boostCount.start() : console.error(`Could not start memberCount: ${boostCount.error}`);
+
+    document.getElementById('lastJoined').innerHTML = data.lastJoined;
+});

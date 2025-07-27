@@ -36,7 +36,7 @@
     <script defer data-domain="rc-garage.nl" src="https://analytics.heapreaper.nl/js/script.outbound-links.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
-    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/app.js" type="module"></script>
   </head>
 
   <body class="bg-black text-white font-sans"> <!-- bg-gradient-to-b from-gray-950 to-black -->
@@ -251,9 +251,15 @@
           <h3 class="text-xl font-semibold">
             Kelvin de Reus
           </h3>
-          <p class="text-sm text-gray-400">
-            Eigenaar & technisch beheer
-          </p>
+
+          <div class="flex gap-2 mt-2">
+            <span class="bg-indigo-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]">
+              Eigenaar
+            </span>
+            <span class="bg-indigo-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]">
+              Technisch beheer
+            </span>
+          </div>
         </div>
 
         <!-- Member three -->
@@ -270,9 +276,15 @@
           <h3 class="text-xl font-semibold">
             TheGhostOfChaos
           </h3>
-          <p class="text-sm text-gray-400">
-            Moderator & Kennis bank
-          </p>
+
+          <div class="flex gap-2 mt-2">
+            <span class="bg-indigo-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]">
+              Moderator
+            </span>
+            <span class="bg-indigo-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]">
+              Kennis bank
+            </span>
+          </div>
         </div>
 
         <!-- Member three -->
@@ -288,12 +300,15 @@
           <h3 class="text-xl font-semibold">
             BlipBlop
           </h3>
-          <p class="text-sm text-gray-400">
-            In-house bot & hulp moderator dankzij
-            <a href="https://pawtect.nl" class="underline" style="text-decoration-color: #1D4ED8;">
-              Pawtect
-            </a>
-          </p>
+
+          <div class="flex gap-2 mt-2">
+            <span class="bg-indigo-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]">
+              Bot
+            </span>
+            <span class="bg-indigo-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]">
+              Assistent
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -304,26 +319,18 @@
       Community statistieken
     </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
-
-      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-105"">
+      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-105">
         <p class="text-gray-400 mb-1">
           Aantal leden
         </p>
         <p id="memberCount" class="font-bold text-xl">...</p>
       </div>
 
-      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-105"">
+      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-105">
         <p class="text-gray-400 mb-1">
           Online leden
         </p>
         <p id="onlineCount" class="font-bold text-xl">...</p>
-      </div>
-
-      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-105">
-        <p class="text-gray-400 mb-1">
-          Laatste lid join
-        </p>
-        <p id="lastJoined" class="font-bold text-xl">...</p>
       </div>
 
       <div class="flex flex-col items-center transition-transform duration-300 hover:scale-105">
@@ -333,6 +340,12 @@
         <p id="boostCount" class="font-bold text-xl"></p>
       </div>
 
+      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-105">
+        <p class="text-gray-400 mb-1">
+          Laatste lid join
+        </p>
+        <p id="lastJoined" class="font-bold text-xl">...</p>
+      </div>
     </div>
   </section>
 
@@ -352,6 +365,7 @@
   </body>
 
   <script src="/assets/js/aos.js"></script>
+  <script src="/assets/js/countUp.js"></script>
 
   <script>
       AOS.init();
