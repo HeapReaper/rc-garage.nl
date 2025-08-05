@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const slider = document.querySelector('.background-slider');
 
     const images = [
-        '/assets/img/hero/rc-cars-bg.jpg',
-        '/assets/img/hero/rc-plane-bg.jpg',
-        '/assets/img/hero/dji-drone-bg.jpg',
-        '/assets/img/hero/rc-boat-2-bg.png',
-        '/assets/img/hero/omp-heli-bg.png',
+        '/assets/img/hero/rc-cars-bg.webp',
+        '/assets/img/hero/rc-plane-bg.webp',
+        '/assets/img/hero/dji-drone-bg.webp',
+        '/assets/img/hero/rc-boat-2-bg.webp',
+        '/assets/img/hero/omp-heli-bg.webp',
     ];
 
     function shuffleArray(arr) {
@@ -104,3 +104,27 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     document.getElementById('lastJoined').innerHTML = data.lastJoined;
 });
+
+// Navbar
+const sidebar = document.getElementById('sidebar');
+const closeBtn = document.getElementById('closeBtn');
+const hamburger = document.getElementById('hamburger');
+
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    sidebar.style.right = '0';
+});
+
+closeBtn.addEventListener('click', closeSidebar);
+
+window.addEventListener('scroll', closeSidebar);
+
+document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== hamburger) {
+        closeSidebar();
+    }
+});
+
+function closeSidebar() {
+    sidebar.style.right = '-100%';
+}
