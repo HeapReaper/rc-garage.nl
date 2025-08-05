@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const slider = document.querySelector('.background-slider');
 
     const images = [
-        '/assets/img/hero/rc-cars-bg.jpg',
-        '/assets/img/hero/rc-plane-bg.jpg',
-        '/assets/img/hero/dji-drone-bg.jpg',
-        '/assets/img/hero/rc-boat-2-bg.png',
-        '/assets/img/hero/omp-heli-bg.png',
+        '/assets/img/hero/rc-cars-bg.webp',
+        '/assets/img/hero/rc-plane-bg.webp',
+        '/assets/img/hero/dji-drone-bg.webp',
+        '/assets/img/hero/rc-boat-2-bg.webp',
+        '/assets/img/hero/omp-heli-bg.webp',
     ];
 
     function shuffleArray(arr) {
