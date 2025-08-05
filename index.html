@@ -39,7 +39,7 @@
     <script src="/assets/js/app.js" type="module"></script>
   </head>
 
-  <body class="bg-black text-white font-sans carbon-fiber"> <!-- bg-gradient-to-b from-gray-950 to-black -->
+  <body class="bg-black text-white font-sans carbon-bg"> <!-- bg-gradient-to-b from-gray-950 to-black -->
 
     <!-- Begin Nav -->
     <nav class="fixed top-0 left-0 w-full backdrop-blur-md flex items-center justify-between px-6 py-4 z-50">
@@ -49,10 +49,26 @@
 
       <!-- Desktop Menu -->
       <ul class="hidden md:flex space-x-8 text-white font-semibold">
-        <li><a href="#heroSection" class="hover:text-blue-600 transition">Home</a></li>
-        <li><a href="#channelSection" class="hover:text-blue-600 transition">Onze kanalen</a></li>
-        <li><a href="#teamSection" class="hover:text-blue-600 transition">Het Team</a></li>
-        <li><a href="#communityStatisticsSection" class="hover:text-blue-600 transition">Community statistieken</a></li>
+        <li>
+          <a href="#heroSection" class="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#channelSection" class="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold">
+            Onze kanalen
+          </a>
+        </li>
+        <li>
+          <a href="#teamSection" class="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold">
+            Het Team
+          </a>
+        </li>
+        <li>
+          <a href="#communityStatisticsSection" class="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold">
+            Community statistieken
+          </a>
+        </li>
       </ul>
 
       <!-- Hamburger -->
@@ -66,10 +82,25 @@
     <!-- Sidebar -->
     <div id="sidebar" class="fixed top-0 right-[-100%] h-full w-64 backdrop-blur-lg shadow-lg flex flex-col p-8 space-y-4 transition-right duration-300 z-50">
       <button id="closeBtn" aria-label="Close menu" class="self-end text-3xl font-bold text-white hover:text-blue-600 focus:outline-none">&times;</button>
-      <a href="#heroSection" class="text-white font-semibold text-lg hover:text-blue-600 transition" onclick="closeSidebar()">Home</a>
-      <a href="#channelSection" class="text-white font-semibold text-lg hover:text-blue-600 transition" onclick="closeSidebar()">Onze kanalaen</a>
-      <a href="#teamSection" class="text-white font-semibold text-lg hover:text-blue-600 transition" onclick="closeSidebar()">Het team</a>
-      <a href="#communityStatisticsSection" class="text-white font-semibold text-lg hover:text-blue-600 transition" onclick="closeSidebar()">Community statistieken</a>
+      <a href="#heroSection" class="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+         onclick="closeSidebar()"
+      >
+        Home
+      </a>
+      <a href="#channelSection" class="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+         onclick="closeSidebar()">
+        Onze kanalen
+      </a>
+      <a href="#teamSection" class="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+         onclick="closeSidebar()"
+      >
+        Het team
+      </a>
+      <a href="#communityStatisticsSection" class="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+         onclick="closeSidebar()"
+      >
+        Community statistieken
+      </a>
     </div>
     <!-- End Nav -->
 
@@ -493,24 +524,5 @@
 
   <script>
       AOS.init();
-  </script>
-
-
-  <script>
-      const hamburger = document.getElementById('hamburger');
-      const sidebar = document.getElementById('sidebar');
-      const closeBtn = document.getElementById('closeBtn');
-
-      hamburger.addEventListener('click', () => {
-          sidebar.style.right = '0';
-      });
-
-      closeBtn.addEventListener('click', () => {
-          sidebar.style.right = '-100%';
-      });
-
-      function closeSidebar() {
-          sidebar.style.right = '-100%';
-      }
   </script>
 </html>

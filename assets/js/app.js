@@ -104,3 +104,27 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     document.getElementById('lastJoined').innerHTML = data.lastJoined;
 });
+
+// Navbar
+const sidebar = document.getElementById('sidebar');
+const closeBtn = document.getElementById('closeBtn');
+const hamburger = document.getElementById('hamburger');
+
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    sidebar.style.right = '0';
+});
+
+closeBtn.addEventListener('click', closeSidebar);
+
+window.addEventListener('scroll', closeSidebar);
+
+document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== hamburger) {
+        closeSidebar();
+    }
+});
+
+function closeSidebar() {
+    sidebar.style.right = '-100%';
+}
