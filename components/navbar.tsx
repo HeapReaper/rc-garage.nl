@@ -19,14 +19,18 @@ export default function Navbar() {
 
         <ul className="hidden md:flex space-x-8 text-white font-semibold">
           <li>
-            <Link href="/"
-               className="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold">
+            <Link
+              href="/"
+              className="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link href="/nieuws"
-               className="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold">
+            <Link
+              href="/nieuws"
+              className="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+            >
               Nieuws
             </Link>
           </li>
@@ -43,26 +47,18 @@ export default function Navbar() {
            className="fixed top-0 right-[-100%] h-full w-64 backdrop-blur-lg shadow-lg flex flex-col p-8 space-y-4 transition-right duration-300 z-50">
         <button id="closeBtn" aria-label="Close menu"
                 className="self-end text-3xl font-bold text-white hover:text-blue-600 focus:outline-none">&times;</button>
-        <a href="#heroSection"
-           className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+        <Link
+          href="/"
+          className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
         >
           Home
-        </a>
-        <a href="#channelSection"
-           className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
->
-          Onze kanalen
-        </a>
-        <a href="#teamSection"
-           className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+        </Link>
+        <Link
+          href="/nieuws"
+          className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
         >
-          Het team
-        </a>
-        <a href="#communityStatisticsSection"
-           className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
-        >
-          Community statistieken
-        </a>
+          Nieuws
+        </Link>
       </div>
     </>
   );
