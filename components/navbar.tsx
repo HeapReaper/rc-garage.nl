@@ -6,12 +6,15 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 left-0 w-full backdrop-blur-md flex items-center justify-between px-6 py-0 z-50">
         <div className="text-2xl font-bold text-gray-900">
-          <Image
-            src="/assets/img/favicon.ico"
-            alt="Favicon"
-            width={64}
-            height={64}
-          />
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="Logo RC Garage"
+              width={50}
+              height={50}
+              className="m-1"
+            />
+          </Link>
         </div>
 
         <ul className="hidden md:flex space-x-8 text-white font-semibold">
