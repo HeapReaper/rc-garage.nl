@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { formatDate } from "@/lib/formatDate";
 import { markdownToHtml } from "@/lib/markdownToHtml";
-import {getStrapiData} from "@/lib/strapi";
+import { getStrapiData } from "@/lib/strapi";
 
 async function getNews() {
-  const data = await getStrapiData('articles', true);
+  const data = await getStrapiData('articles?populate=*', true);
 
   // @ts-ignore
   return data.data
@@ -21,12 +22,14 @@ export default async function News() {
         {articles.map((article: any) => (
 
           <Link
-            href={`/nieuws/${article.id}`}
+            href={`/nieuws/${article.slug}`}
             key={article.id}
             className="block bg-gray-900 rounded-2xl overflow-hidden max-w-64 shadow-lg hover:scale-105 transition-transform duration-300"
           >
-            <img
+            <Image
               src={`${process.env.STRAPI_API_URL}${article.cover.formats.thumbnail.url}`}
+              width={200}
+              height={200}
               alt=''
               className="w-full h-48 object-cover"
             />
@@ -43,7 +46,6 @@ export default async function News() {
                   __html: `${article.blocks[0].body.slice(0, 40)}...`,
                 }}
               ></p>
-
             </div>
           </Link>
         ))}

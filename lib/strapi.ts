@@ -5,7 +5,7 @@ export async function getStrapiData(request: string, populateAll: boolean = fals
     throw new Error('No url provided in "/src/lib/api.ts"!');
   }
 
-  const res: Response = await fetch(`${url}/api/${request}${populateAll ? '?populate=*' : ''}`, {
+  const res: Response = await fetch(`${url}/api/${request}`, {
     next: {
       revalidate: 60
     }

@@ -1,30 +1,34 @@
 import Link from "next/link";
 import {formatDate} from "@/lib/formatDate";
-import Image from "next/image";
 import { markdownToHtml } from "@/lib/markdownToHtml";
+import {getStrapiData} from "@/lib/strapi";
 
 type Props = {
-  params: { id: string };
+  params: { slug: string };
 };
 
-async function getNewsArticle(id: string) {
-  const res = await fetch(`https://strapi.rc-garage.nl/news-articles/${id}`, {
-    next: {revalidate: 120}
-  });
+async function getNewsArticle(slug: string) {
+  const data = await getStrapiData(`articles?filters[slug][$eq]=${slug}&populate=*`, true);
 
-  return await res.json();
+  // @ts-ignore
+  return data.data[0]
 }
 
 export default async function ShowNews({ params }: Props) {
-  const {id} = params;
+  const {slug} = params;
 
-  const article = await getNewsArticle(id);
-  const htmlContent = await markdownToHtml(article.content);
+  const article = (await getNewsArticle(slug));
+
+  console.log(article);
+
+  const htmlContent = await markdownToHtml(article.blocks[0].body);
 
   if (!article) {
     return (
       <section className="max-w-5xl mx-auto py-20 px-8 text-center">
-        <p className="text-gray-400">Artikel niet gevonden.</p>
+        <p className="text-gray-400">
+          Artikel niet gevonden.
+        </p>
         <Link href="/nieuws" className="mt-8 inline-block text-blue-600 hover:text-blue-700 font-semibold">
           &larr; Terug naar nieuws
         </Link>
@@ -33,19 +37,16 @@ export default async function ShowNews({ params }: Props) {
   }
 
   return (
-    <section className="max-w-5xl mx-auto py-20 px-8 text-left">
-      <h1 className="text-5xl font-bold mb-2">
-        {article.titel}
-      </h1>
+    <section
+      className="
+      max-w-5xl mx-auto py-20 px-8 text-left prose lg:prose-xl prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-strong:text-white
+      prose-ol:text-white prose-a:text-white prose-b:text-white prose-b:text-white prose-before:text-white prose-code:text-white prose-::before:text-white
 
-      {article.tags.map((tag: any) => (
-        <span
-          key={tag.id}
-          className="bg-gray-800  text-gray-200 px-2 py-1 rounded-full text-xs"
-        >
-          {tag.name}
-        </span>
-      ))}
+      "
+    >
+      <h1 className="text-5xl font-bold mb-2">
+        {article.title}
+      </h1>
 
       <p className="text-gray-400 mb-6 mt-2">
         {formatDate(article.publishedAt)}

@@ -14,11 +14,9 @@ async function getChannels() {
 export default async function Channels() {
   const channels = await getChannels();
 
-  console.log(channels);
   return (
     <>
-
-      <div className="flex flex-col items-center gap-2 mt-8 sm:flex-row sm:justify-center">
+      <div className="flex flex-col items-center gap-2 mt-8 sm:flex-row sm:justify-center mt-20">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
              className="w-11 h-11 text-blue-600">
           <path fillRule="evenodd"

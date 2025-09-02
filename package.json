@@ -10,10 +10,12 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1"
   },
   "devDependencies": {

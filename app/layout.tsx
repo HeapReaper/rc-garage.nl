@@ -4,7 +4,6 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import PlausibleAnalytics from "@/components/analytics";
 
-
 export const metadata: Metadata = {
   title: "RC Garage – Discord community voor Auto's, Drones, Helikopters, Boten en Vliegtuigen!",
   description:
