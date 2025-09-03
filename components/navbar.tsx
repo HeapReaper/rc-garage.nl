@@ -24,18 +24,22 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full backdrop-blur-md flex items-center justify-between px-6 py-2 z-50 mt-2">
+      <nav className="fixed top-0 left-0 w-full backdrop-blur-md flex items-center justify-between px-6 py-2 z-50">
         <div className="text-2xl font-bold text-gray-900">
           <Link href="/">
-            {data?.logo?.formats?.thumbnail?.url && (
-              <Image
-                src={`https://strapi.rc-garage.nl${data.logo.formats.thumbnail.url}`}
-                alt="Logo"
-                width={50}
-                height={50}
-                className="m-1"
-              />
-            )}
+            <div className="w-12 h-12 relative">
+              {data?.logo?.formats?.thumbnail?.url ? (
+                <Image
+                  src={`https://strapi.rc-garage.nl${data.logo.formats.thumbnail.url}`}
+                  alt="Logo"
+                  fill
+                  priority={true}
+                  className="object-contain"
+                />
+              ) : (
+                <div className="w-full h-full rounded" />
+              )}
+            </div>
           </Link>
         </div>
 
@@ -86,12 +90,14 @@ export default function Navbar() {
         </button>
         <Link
           href="/"
+          onClick={() => setSidebarOpen(false)}
           className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
         >
           Home
         </Link>
         <Link
           href="/nieuws"
+          onClick={() => setSidebarOpen(false)}
           className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
         >
           Nieuws

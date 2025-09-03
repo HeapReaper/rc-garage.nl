@@ -1,11 +1,18 @@
-import {getStrapiData} from "@/lib/strapi";
+import { getStrapiData } from "@/lib/strapi";
 import Image from "next/image";
+import MemberStatusIndicator from "@/components/statusIndicator";
 
 export async function getData() {
   const data = await getStrapiData("ons-teams?populate=*", true);
 
   // @ts-ignore
-  return data.data
+  const teamMembers =  data.data
+
+  teamMembers.sort((a: any, b: any) =>
+    a.gebruikersnaam.localeCompare(b.gebruikersnaam)
+  );
+
+  return teamMembers;
 }
 
 export default async function OurTeam() {
@@ -13,7 +20,7 @@ export default async function OurTeam() {
 
   return (
     <>
-      <section id="teamSection" className="max-w-5xl mx-auto py-20 px-8 text-center" data-aos="fade-up"
+      <section id="teamSection" className="max-w-5xl mx-auto py-10 px-8 text-center" data-aos="fade-up"
                data-aos-duration="700" data-aos-delay="100">
         <div className="flex flex-col items-center gap-2 mb-12 sm:flex-row sm:justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -39,7 +46,7 @@ export default async function OurTeam() {
                   className="w-32 h-32 rounded-full mb-4 transition-transform duration-300 hover:scale-105 shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]"
                   loading="lazy"
                 />
-                <div id="status-indicator-1" className="absolute top-2 right-2 w-5 h-5 rounded-full shadow-lg"></div>
+                <MemberStatusIndicator memberId={member.UUID} />
               </div>
 
               <h3 className="text-xl font-semibold">
@@ -60,11 +67,5 @@ export default async function OurTeam() {
         </div>
       </section>
     </>
-
-
-
-
-
-
   );
 }

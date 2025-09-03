@@ -2,17 +2,23 @@ import Image from "next/image";
 import { getStrapiData } from "@/lib/strapi";
 
 async function getChannels() {
-  const data =  await getStrapiData("kanalens?populate=*", false);
+  const data = await getStrapiData("kanalens?populate=*", false);
 
   // @ts-ignore
-  return data.data
+  const channels = data.data;
+
+  // Sort alphabetically by name
+  channels.sort((a: any, b: any) => a.naam.localeCompare(b.naam));
+
+  return channels;
 }
 
 export default async function Channels() {
   const channels = await getChannels();
+
   return (
     <>
-      <div className="flex flex-col items-center gap-2 mt-8 sm:flex-row sm:justify-center mt-20">
+      <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center mt-20">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
              className="w-11 h-11 text-blue-600">
           <path fillRule="evenodd"

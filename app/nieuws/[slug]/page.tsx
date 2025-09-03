@@ -37,8 +37,8 @@ export default async function ShowNews({ params }: Props) {
   return (
     <section
       className="
-        max-w-5xl mx-auto py-20 px-8 text-left prose lg:prose-xl prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-strong:text-white
-        prose-ol:text-white prose-a:text-white prose-b:text-white prose-b:text-white prose-before:text-white prose-code:text-white prose-::before:text-white
+      max-w-5xl mx-auto py-20 px-8 text-left prose lg:prose-xl prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-strong:text-white
+      prose-ol:text-white prose-a:text-white prose-b:text-white prose-b:text-white prose-before:text-white prose-code:text-white prose-::before:text-white
       "
     >
       <h1 className="text-5xl font-bold">
