@@ -7,8 +7,24 @@ import { getStrapiData } from "@/lib/strapi";
 async function getNews() {
   const data = await getStrapiData('articles?populate=*', true);
 
+  await Promise.all(
+    // @ts-ignore
+    data.data.map(async (article: any) => {
+      if (!article.blocks) return
+
+      article.blocks = await Promise.all(
+        article.blocks.map(async (block: any) => ({
+          ...block,
+          body: await markdownToHtml(block.body),
+        }))
+      );
+
+    })
+  );
+
+  console.log(data);
   // @ts-ignore
-  return data.data
+  return data.data;
 }
 
 export default async function News() {
