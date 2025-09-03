@@ -25,9 +25,9 @@ export default async function Partners() {
   return (
     <>
       <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center mt-20">
-        <h2 className="text-4xl font-bold text-center sm:text-left">
-          🤝 Onze Partners
-        </h2>
+        <h1 className="text-5xl font-bold mb-12">
+          Partners
+        </h1>
       </div>
 
       {partners.map((partner: any, index: number) => {

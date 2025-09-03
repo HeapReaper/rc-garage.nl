@@ -46,7 +46,7 @@ export default function Navbar() {
         <ul className="hidden md:flex space-x-8 text-white font-semibold">
           <li>
             <Link
-              href="/public"
+              href="/"
               className="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
             >
               Home
@@ -97,7 +97,7 @@ export default function Navbar() {
           &times;
         </button>
         <Link
-          href="/public"
+          href="/"
           onClick={() => setSidebarOpen(false)}
           className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
         >

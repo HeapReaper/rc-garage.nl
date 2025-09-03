@@ -31,7 +31,9 @@ export default async function News() {
 
   return (
     <section className="max-w-5xl mx-auto py-20 px-8 text-center">
-      <h1 className="text-5xl font-bold mb-12">Nieuws</h1>
+      <h1 className="text-5xl font-bold mb-12">
+        Nieuws
+      </h1>
 
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {articles.map((article: any) => (
