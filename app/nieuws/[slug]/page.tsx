@@ -17,7 +17,6 @@ async function getNewsArticle(slug: string) {
 export default async function ShowNews({ params }: Props) {
   const {slug} = params;
   const article = (await getNewsArticle(slug));
-  const htmlContent = await markdownToHtml(article.content);
 
   if (!article) {
     return (
@@ -31,6 +30,8 @@ export default async function ShowNews({ params }: Props) {
       </section>
     );
   }
+
+  const htmlContent = await markdownToHtml(article.content);
 
   return (
     <section
