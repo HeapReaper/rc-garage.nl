@@ -22,7 +22,6 @@ async function getNews() {
     })
   );
 
-  console.log(data);
   // @ts-ignore
   return data.data;
 }
@@ -59,7 +58,7 @@ export default async function News() {
               <p
                 className="mt-2 text-gray-300 line-clamp-3"
                 dangerouslySetInnerHTML={{
-                  __html: `${article.blocks[0].body.slice(0, 40)}...`,
+                  __html: `${article.content.slice(0, 40)}...`,
                 }}
               ></p>
             </div>

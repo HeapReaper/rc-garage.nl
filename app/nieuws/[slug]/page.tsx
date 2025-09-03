@@ -19,9 +19,7 @@ export default async function ShowNews({ params }: Props) {
 
   const article = (await getNewsArticle(slug));
 
-  console.log(article);
-
-  const htmlContent = await markdownToHtml(article.blocks[0].body);
+  const htmlContent = await markdownToHtml(article.content);
 
   if (!article) {
     return (
@@ -39,16 +37,15 @@ export default async function ShowNews({ params }: Props) {
   return (
     <section
       className="
-      max-w-5xl mx-auto py-20 px-8 text-left prose lg:prose-xl prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-strong:text-white
-      prose-ol:text-white prose-a:text-white prose-b:text-white prose-b:text-white prose-before:text-white prose-code:text-white prose-::before:text-white
-
+        max-w-5xl mx-auto py-20 px-8 text-left prose lg:prose-xl prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-strong:text-white
+        prose-ol:text-white prose-a:text-white prose-b:text-white prose-b:text-white prose-before:text-white prose-code:text-white prose-::before:text-white
       "
     >
-      <h1 className="text-5xl font-bold mb-2">
+      <h1 className="text-5xl font-bold">
         {article.title}
       </h1>
 
-      <p className="text-gray-400 mb-6 mt-2">
+      <p className="text-gray-400 mb-6">
         {formatDate(article.publishedAt)}
       </p>
 

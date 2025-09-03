@@ -4,61 +4,65 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import BecomeDiscordMember from "@/components/buttons/becomeDiscordMember";
 
-async function getHeroSliders() {
-  const res = await fetch(
-    `https://strapi.rc-garage.nl/hero-sliders`,
+async function getData() {
+  const res: Response = await fetch(
+    `https://strapi.rc-garage.nl/api/hero-sliders?populate=*`,
     { next: { revalidate: 60 } }
   );
-  return await res.json();
+  const data = await res.json();
+  return data.data;
 }
 
 export default function HeroSection() {
-  const [sliders, setSliders] = useState<any[]>([]);
+  const [sliders, setSliders] = useState<string[]>([]);
   const [current, setCurrent] = useState(0);
 
+  // Load image URLs
   useEffect(() => {
-    getHeroSliders().then((data) => setSliders(data));
+    getData().then((data: any) => {
+      if (data.length > 0 && data[0].media) {
+        const urls = data[0].media.map(
+          (item: any) =>
+            "https://strapi.rc-garage.nl" +
+            (item.formats?.large?.url || item.url)
+        );
+        setSliders(urls);
+      }
+    });
   }, []);
 
+  // Autoplay logic
   useEffect(() => {
-    if (!sliders.length) return;
+    if (sliders.length === 0) return;
 
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % sliders.length);
-    }, 1000);
+    }, 5000); // 5 seconds per slide
+
     return () => clearInterval(interval);
-  }, [sliders]);
+  }, [sliders.length]);
 
   if (!sliders.length) return null;
 
   return (
     <section className="hero-background text-center py-24 bg-black relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        {sliders.map((slider, index) => {
-          const media = slider.media[0];
-          if (!media) return null;
-
-          const imageUrl =
-            "https://strapi.rc-garage.nl" +
-            (media.formats.large?.url || media.url);
-
-          return (
-            <div
-              key={slider.id}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                index === current ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <Image
-                src={imageUrl}
-                alt={media.alternativeText || "Hero image"}
-                fill
-                className="object-cover w-full h-full"
-                priority={index === 0}
-              />
-            </div>
-          );
-        })}
+        {sliders.map((url, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === current ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={url}
+              alt={`Slide ${index + 1}`}
+              fill
+              className="object-cover w-full h-full"
+              priority={index === 0}
+            />
+          </div>
+        ))}
       </div>
 
       <div className="absolute inset-0 bg-black/70 z-10 pointer-events-none"></div>

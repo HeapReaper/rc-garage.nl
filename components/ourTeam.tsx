@@ -11,7 +11,6 @@ export async function getData() {
 export default async function OurTeam() {
   const teamMembers = await getData();
 
-  console.log(teamMembers);
   return (
     <>
       <section id="teamSection" className="max-w-5xl mx-auto py-20 px-8 text-center" data-aos="fade-up"
