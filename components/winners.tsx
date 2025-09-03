@@ -1,14 +1,11 @@
 import Image from "next/image";
+import { getStrapiData } from "@/lib/strapi";
 
 async function getContestWinners() {
-  const res = await fetch(
-    `${process.env.STRAPI_API_URL}/foto-winnaars`,
-    {
-      next: { revalidate: 60 },
-    }
-  );
+  const data =  await getStrapiData("foto-webstrijds?populate=*", false);
 
-  return await res.json();
+  // @ts-ignore
+  return data.data
 }
 
 export default async function Winners() {
@@ -18,7 +15,7 @@ export default async function Winners() {
     <>
       {contestWinners.map((winner: any, index: number) => {
         const imageUrl =
-          process.env.STRAPI_API_URL + `${winner.afbeelding.formats.large.url}`;
+          process.env.STRAPI_API_URL + `${winner.afbeelding.formats.small.url}`;
 
         const isReversed = index % 2 === 1;
 
@@ -44,7 +41,7 @@ export default async function Winners() {
                 />
               </svg>
               <h2 className="text-4xl font-bold text-center sm:text-left">
-                {winner.wedstrijdNaam}
+                {winner.type}
               </h2>
             </div>
 
@@ -61,7 +58,7 @@ export default async function Winners() {
                   isReversed ? "md:text-left" : "md:text-right"
                 }`}
               >
-                <h2 className="text-3xl font-bold mb-3">@{winner.gebruikersnaam}</h2>
+                <h2 className="text-3xl font-bold mb-3">{winner.gebruikersnaam}</h2>
                 <p className="text-gray-300">{winner.beschrijving}</p>
               </div>
               <Image

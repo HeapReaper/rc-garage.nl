@@ -1,19 +1,15 @@
 import Image from "next/image";
+import { getStrapiData } from "@/lib/strapi";
 
 async function getChannels() {
-  const res = await fetch(
-    `${process.env.STRAPI_API_URL}/onze-kanalens`,
-    {
-      next: { revalidate: 120 },
-    }
-  );
+  const data =  await getStrapiData("kanalens?populate=*", false);
 
-  return await res.json();
+  // @ts-ignore
+  return data.data
 }
 
 export default async function Channels() {
   const channels = await getChannels();
-
   return (
     <>
       <div className="flex flex-col items-center gap-2 mt-8 sm:flex-row sm:justify-center mt-20">
@@ -30,7 +26,7 @@ export default async function Channels() {
 
       {channels.map((channel: any, index: number) => {
         const imageUrl =
-          process.env.STRAPI_API_URL + `${channel.kanaalAfbeelding.formats.small.url}`;
+          process.env.STRAPI_API_URL + `${channel.afbeelding.formats.small.url}`;
 
         const isReversed = index % 2 === 1;
 
@@ -57,7 +53,7 @@ export default async function Channels() {
               >
                 <h2 className="text-3xl font-bold mb-3">
                   <a href={channel.link} target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-700 transition-colors duration-400" style={{ textDecorationColor: '#1D4ED8' }}>
-                    {channel.titel}
+                    # {channel.naam}
                   </a>
                 </h2>
                 <p className="text-gray-300">{channel.beschrijving}</p>
