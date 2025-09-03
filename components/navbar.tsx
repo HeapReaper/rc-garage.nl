@@ -1,30 +1,41 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
-async function getData() {
-  const res: Response = await fetch(
-    `https://strapi.rc-garage.nl/api/global?populate=logo`,
-    { next: { revalidate: 60 } }
-  );
-  const data = await res.json();
-  return data.data;
-}
+export default function Navbar() {
+  const [data, setData] = useState<any>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-export default async function Navbar() {
-  const data = await getData();
-  console.log(data);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch(
+        `https://strapi.rc-garage.nl/api/global?populate=logo`,
+        { next: { revalidate: 60 } }
+      );
+
+      const json = await res.json();
+      setData(json.data);
+    }
+
+    void fetchData();
+  }, []);
+
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full backdrop-blur-md flex items-center justify-between px-6 py-0 z-50">
+      <nav className="fixed top-0 left-0 w-full backdrop-blur-md flex items-center justify-between px-6 py-2 z-50 mt-2">
         <div className="text-2xl font-bold text-gray-900">
           <Link href="/">
-            <Image
-              src={`https://strapi.rc-garage.nl${data.logo.formats.thumbnail.url}`}
-              alt="Logo"
-              width={50}
-              height={50}
-              className="m-1"
-            />
+            {data?.logo?.formats?.thumbnail?.url && (
+              <Image
+                src={`https://strapi.rc-garage.nl${data.logo.formats.thumbnail.url}`}
+                alt="Logo"
+                width={50}
+                height={50}
+                className="m-1"
+              />
+            )}
           </Link>
         </div>
 
@@ -47,17 +58,32 @@ export default async function Navbar() {
           </li>
         </ul>
 
-        <button id="hamburger" aria-label="Open menu" className="md:hidden flex flex-col gap-1.5 focus:outline-none">
+        <button
+          onClick={() => setSidebarOpen(true)}
+          id="hamburger"
+          aria-label="Open menu"
+          className="md:hidden flex flex-col gap-1.5 focus:outline-none "
+        >
           <span className="block w-6 h-0.5 bg-white rounded"></span>
           <span className="block w-6 h-0.5 bg-white rounded"></span>
           <span className="block w-6 h-0.5 bg-white rounded"></span>
         </button>
       </nav>
 
-      <div id="sidebar"
-           className="fixed top-0 right-[-100%] h-full w-64 backdrop-blur-lg shadow-lg flex flex-col p-8 space-y-4 transition-right duration-300 z-50">
-        <button id="closeBtn" aria-label="Close menu"
-                className="self-end text-3xl font-bold text-white hover:text-blue-600 focus:outline-none">&times;</button>
+      <div
+        id="sidebar"
+        className={`fixed top-0 right-0 h-full w-64 backdrop-blur-lg shadow-lg flex flex-col p-8 space-y-4 transition-transform duration-300 z-50 ${
+          sidebarOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <button
+          onClick={() => setSidebarOpen(false)}
+          id="closeBtn"
+          aria-label="Close menu"
+          className="self-end text-3xl font-bold text-white hover:text-blue-600 focus:outline-none"
+        >
+          &times;
+        </button>
         <Link
           href="/"
           className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
