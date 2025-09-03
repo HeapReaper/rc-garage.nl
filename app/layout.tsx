@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/core/navbar";
+import Footer from "@/components/core/footer";
 import PlausibleAnalytics from "@/components/analytics";
 import {getStrapiData} from "@/lib/strapi";
 

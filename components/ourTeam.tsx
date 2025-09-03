@@ -37,13 +37,13 @@ export default async function OurTeam() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
           {teamMembers.map((member: any, index: number) => (
             <div className="flex flex-col items-center" key={index}>
-              <div className="relative inline-block">
+              <div className="relative inline-block transition-transform duration-300 hover:scale-105 shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]">
                 <Image
                   width={128}
                   height={128}
                   src={process.env.STRAPI_API_URL + member.profielfoto.formats.thumbnail.url}
                   alt="profielfoto"
-                  className="w-32 h-32 rounded-full mb-4 transition-transform duration-300 hover:scale-105 shadow-lg drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]"
+                  className="w-32 h-32 rounded-full mb-4 "
                   loading="lazy"
                 />
                 <MemberStatusIndicator memberId={member.UUID} />

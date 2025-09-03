@@ -26,7 +26,7 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 left-0 w-full backdrop-blur-md flex items-center justify-between px-6 py-2 z-50">
         <div className="text-2xl font-bold text-gray-900">
-          <Link href="/">
+          <Link href="/public">
             <div className="w-12 h-12 relative">
               {data?.logo?.formats?.thumbnail?.url ? (
                 <Image
@@ -46,7 +46,7 @@ export default function Navbar() {
         <ul className="hidden md:flex space-x-8 text-white font-semibold">
           <li>
             <Link
-              href="/"
+              href="/public"
               className="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
             >
               Home
@@ -58,6 +58,14 @@ export default function Navbar() {
               className="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
             >
               Nieuws
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/partners"
+              className="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+            >
+              Partners
             </Link>
           </li>
         </ul>
@@ -89,7 +97,7 @@ export default function Navbar() {
           &times;
         </button>
         <Link
-          href="/"
+          href="/public"
           onClick={() => setSidebarOpen(false)}
           className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
         >
@@ -102,6 +110,14 @@ export default function Navbar() {
         >
           Nieuws
         </Link>
+        <Link
+          href="/partners"
+          onClick={() => setSidebarOpen(false)}
+          className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+        >
+          Partners
+        </Link>
+
       </div>
     </>
   );

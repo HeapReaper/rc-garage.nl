@@ -11,5 +11,6 @@ export async function getStrapiData(request: string, populateAll: boolean = fals
     }
   });
 
+  console.log('Returning data');
   return await res.json();
 }

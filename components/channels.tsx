@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getStrapiData } from "@/lib/strapi";
+import { markdownToHtml } from "@/lib/markdownToHtml";
 
 async function getChannels() {
   const data = await getStrapiData("kanalens?populate=*", false);
@@ -9,6 +10,10 @@ async function getChannels() {
 
   // Sort alphabetically by name
   channels.sort((a: any, b: any) => a.naam.localeCompare(b.naam));
+
+  for (const channel of channels) {
+    channel.description = await markdownToHtml(channel.description);
+  }
 
   return channels;
 }
