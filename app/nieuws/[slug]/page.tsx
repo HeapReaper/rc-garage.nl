@@ -2,6 +2,7 @@ import Link from "next/link";
 import { formatDate } from "@/lib/formatDate";
 import { markdownToHtml } from "@/lib/markdownToHtml";
 import { getStrapiData } from "@/lib/strapi";
+import ShowMarkdown from "@/components/showMarkdown";
 
 type Props = {
   params: { slug: string };
@@ -36,11 +37,9 @@ export default async function ShowNews({ params }: Props) {
   return (
     <section
       className="
-      max-w-5xl mx-auto py-20 px-8 text-left prose lg:prose-xl prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-strong:text-white
-      prose-ol:text-white prose-a:text-white prose-b:text-white prose-b:text-white prose-before:text-white prose-code:text-white prose-::before:text-white
-      "
+      max-w-5xl mx-auto py-20 px-8 text-left"
     >
-      <h1 className="text-5xl font-bold">
+      <h1 className="text-4xl font-bold">
         {article.title}
       </h1>
 
@@ -48,9 +47,7 @@ export default async function ShowNews({ params }: Props) {
         {formatDate(article.publishedAt)}
       </p>
 
-      <div className="text-gray-300 space-y-4">
-        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-      </div>
+      <ShowMarkdown content={htmlContent || ""} classes="md:prose-xl" />
 
       <Link href="/nieuws" className="mt-8 inline-block text-blue-600 hover:text-blue-700 font-semibold">&larr; Terug
         naar nieuws</Link>

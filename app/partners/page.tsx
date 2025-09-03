@@ -67,7 +67,11 @@ export default async function Partners() {
                   )}
                 </h2>
 
-                <ShowMarkdown content={partner.beschrijving || ""} />
+                <ShowMarkdown
+                  content={partner.beschrijving || ""}
+                  classes="text-center"
+                />
+
               </div>
               <Image
                 src={imageUrl}
