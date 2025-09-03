@@ -1,7 +1,27 @@
-FROM nginx:alpine
+FROM node:20-alpine AS builder
 
-COPY index.html /usr/share/nginx/html/
-COPY assets/ /usr/share/nginx/html/assets/
-COPY sitemap.xml /usr/share/nginx/html/
+WORKDIR /app
 
-EXPOSE 80
+COPY package.json package-lock.json* ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/package-lock.json* ./
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/next.config.js ./
+
+RUN npm install --production
+
+EXPOSE 3000
+
+CMD ["npx", "next", "start"]

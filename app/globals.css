@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.carbon-bg {
+  background-color: rgb(50, 50, 50); /* was 40,40,40 */
+  background-image:
+          linear-gradient(45deg, #111 30%, transparent 5%, transparent 70%, #111 70%, #111), /* was #000 */
+          linear-gradient(45deg, #111 30%, transparent 30%, transparent 70%, #111 70%, #111), /* was #000 */
+          linear-gradient(to bottom, rgb(12, 12, 12), rgb(24, 24, 24)); /* was 6–16 */
+  background-size: 10px 10px, 10px 10px, 10px 5px;
+  background-position: 0px 0px, 5px 5px, 0px 0px;
+  background-attachment: fixed;
+}
+
+.custom-shadow {
+  box-shadow: 0 0 30px 20px rgba(99,102,241, 0.3);
+}
+.custom-shadow-2 {
+  filter: drop-shadow(0 0 15px rgba(99,102,241, 0.7));
+  transition: filter 0.3s ease;
+}
+
+.custom-shadow-buttons {
+  box-shadow: 0 0 30px 20px rgba(99,102,241, 0.3);
+}
+
+.x322r3d {
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+  filter: drop-shadow(0 0 20px rgba(99,102,241,0.6));
+}
+
+/*
+.hero-background {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('/assets/img/hero/rc-boat-2-bg.png') center / cover no-repeat;
+}
+*/
+
+.hero-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.background-slider > div {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+  transition: all 1s ease-in-out;
+}
+
+.status-indicator {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 8px rgb(139 92 246 / 0.7);
+  background-color: #22c55e;
+  animation: blink 1.5s infinite;
+  z-index: 10;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.status-online {
+  background-color: #22c55e;
+  animation: blink 1.5s infinite;
+}
+
+.status-idle {
+  background-color: #f59e0b;
+  animation: blink 1.5s infinite;
+}
+
+.status-offline {
+  background-color: #8B0000;
+  animation: blink 1.5s infinite;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
