@@ -1,15 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Navbar() {
+async function getData() {
+  const res: Response = await fetch(
+    `https://strapi.rc-garage.nl/api/global?populate=logo`,
+    { next: { revalidate: 60 } }
+  );
+  const data = await res.json();
+  return data.data;
+}
+
+export default async function Navbar() {
+  const data = await getData();
+  console.log(data);
   return (
     <>
       <nav className="fixed top-0 left-0 w-full backdrop-blur-md flex items-center justify-between px-6 py-0 z-50">
         <div className="text-2xl font-bold text-gray-900">
           <Link href="/">
             <Image
-              src="/logo.png"
-              alt="Logo RC Garage"
+              src={`https://strapi.rc-garage.nl${data.logo.formats.thumbnail.url}`}
+              alt="Logo"
               width={50}
               height={50}
               className="m-1"

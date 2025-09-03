@@ -6,7 +6,7 @@ import PlausibleAnalytics from "@/components/analytics";
 import {getStrapiData} from "@/lib/strapi";
 
 async function getData() {
-  const data = await getStrapiData('global')
+  const data = await getStrapiData('global?populate=*')
 
   // @ts-ignore
   return data.data;
@@ -46,6 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl">
+
       <PlausibleAnalytics />
 
       <body className="bg-black text-white font-sans carbon-bg">
