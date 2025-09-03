@@ -3,26 +3,17 @@ import BecomeDiscordMember from "@/components/buttons/becomeDiscordMember";
 import HeroSection from "@/components/heroSlider";
 import Winners from "@/components/winners";
 import Channels from "@/components/channels";
+import OurTeam from "@/components/ourTeam";
 
-async function getContestWinners() {
-  const res = await fetch(
-    `${process.env.STRAPI_API_URL}/foto-winnaars`,
-    {
-      next: { revalidate: 60 },
-    }
-  );
-
-  return await res.json();
-}
 
 export default async function Home() {
-  const contestWinners = await getContestWinners();
-
   return (
     <>
       <HeroSection />
 
       <Channels />
+
+      <OurTeam />
 
       <Winners />
 
