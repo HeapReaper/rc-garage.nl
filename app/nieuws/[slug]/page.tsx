@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {formatDate} from "@/lib/formatDate";
 import { markdownToHtml } from "@/lib/markdownToHtml";
-import {getStrapiData} from "@/lib/strapi";
+import { getStrapiData } from "@/lib/strapi";
 
 type Props = {
   params: { slug: string };
@@ -16,9 +16,7 @@ async function getNewsArticle(slug: string) {
 
 export default async function ShowNews({ params }: Props) {
   const {slug} = params;
-
   const article = (await getNewsArticle(slug));
-
   const htmlContent = await markdownToHtml(article.content);
 
   if (!article) {

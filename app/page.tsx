@@ -3,6 +3,7 @@ import HeroSection from "@/components/heroSlider";
 import Winners from "@/components/winners";
 import Channels from "@/components/channels";
 import OurTeam from "@/components/ourTeam";
+import GuildStats from "@/components/guildStats";
 
 export default async function Home() {
   return (
@@ -10,6 +11,8 @@ export default async function Home() {
       <HeroSection />
 
       <Channels />
+
+      <GuildStats />
 
       <OurTeam />
 
