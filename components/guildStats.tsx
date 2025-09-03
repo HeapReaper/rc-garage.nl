@@ -45,7 +45,7 @@ export default function GuildStats() {
   return (
     <section
       id="communityStatisticsSection"
-      className="max-w-5xl mx-auto py-20 px-8 text-center"
+      className="max-w-5xl mx-auto py-10 px-8 text-center"
       data-aos="fade-up"
       data-aos-duration="700"
       data-aos-delay="100"
