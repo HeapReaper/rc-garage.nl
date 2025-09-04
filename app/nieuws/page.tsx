@@ -5,7 +5,7 @@ import { markdownToHtml } from "@/lib/markdownToHtml";
 import { getStrapiData } from "@/lib/strapi";
 
 async function getNews() {
-  const data = await getStrapiData('articles?populate=*', true);
+  const data = await getStrapiData("articles?populate=*&sort=createdAt:desc", true);
 
   await Promise.all(
     // @ts-ignore

@@ -21,7 +21,7 @@ export default async function ShowNews({ params }: Props) {
 
   if (!article) {
     return (
-      <section className="max-w-5xl mx-auto py-20 px-8 text-center">
+      <section className="max-w-8xl mx-auto py-20 px-8 text-center">
         <p className="text-gray-400">
           Artikel niet gevonden.
         </p>
@@ -37,7 +37,7 @@ export default async function ShowNews({ params }: Props) {
   return (
     <section
       className="
-      max-w-5xl mx-auto py-20 px-8 text-left"
+      max-w-9xl mx-auto py-20 px-8 text-left"
     >
       <h1 className="text-4xl font-bold">
         {article.title}
