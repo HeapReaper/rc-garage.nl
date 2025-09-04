@@ -26,7 +26,7 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 left-0 w-full backdrop-blur-md flex items-center justify-between px-6 py-2 z-50">
         <div className="text-2xl font-bold text-gray-900">
-          <Link href="/public">
+          <Link href="/">
             <div className="w-12 h-12 relative">
               {data?.logo?.formats?.thumbnail?.url ? (
                 <Image
