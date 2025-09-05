@@ -3,12 +3,14 @@ import "./globals.css";
 import Navbar from "@/components/core/navbar";
 import Footer from "@/components/core/footer";
 import PlausibleAnalytics from "@/components/analytics";
-import {getStrapiData} from "@/lib/strapi";
 
-async function getData() {
-  const data = await getStrapiData('global?populate=*')
+async function getData(){
+  const res = await fetch("https://strapi.rc-garage.nl/api/global", {
+    next: {revalidate: 60}
+  });
 
-  // @ts-ignore
+  const data = await res.json();
+
   return data.data;
 }
 
@@ -18,7 +20,7 @@ export const metadata: Metadata = {
   title: data.siteName,
   description: data.siteDescription,
   authors: [
-    { name: "RC Garage" }
+    { name: data.siteName },
   ],
   openGraph: {
     title: "RC Garage – De plek voor RC fans!",
@@ -46,7 +48,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl">
-
       <PlausibleAnalytics />
 
       <body className="bg-black text-white font-sans carbon-bg">
