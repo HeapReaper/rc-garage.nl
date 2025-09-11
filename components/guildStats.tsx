@@ -32,12 +32,17 @@ export default function GuildStats() {
 
         const boostCount = new CountUp("boostCount", data.boostCount, { enableScrollSpy: true });
         boostCount.error ? console.error(boostCount.error) : boostCount.start();
+
+        const lastJoinedDay = new CountUp("lastJoinedDay", data.lastJoined.split('-')[0] , { enableScrollSpy: true });
+        lastJoinedDay.error ? console.error(lastJoinedDay.error) : lastJoinedDay.start();
+
+        console.log(data.lastJoined.split('-')[0])
       } catch (err) {
         console.error("Error fetching guild stats:", err);
       }
     }
 
-    fetchStats();
+    void fetchStats();
     const interval = setInterval(fetchStats, 29_000); // update every 29 seconds
     return () => clearInterval(interval);
   }, []);
@@ -87,7 +92,7 @@ export default function GuildStats() {
         <div className="flex flex-col items-center transition-transform duration-300 hover:scale-105">
           <p className="text-gray-400 mb-1">Laatste lid join</p>
           <p id="lastJoined" className="font-bold text-xl">
-            {stats.lastJoined}
+            <span id="lastJoinedDay"></span><span>{`-${stats.lastJoined.split('-')[1]}-${stats.lastJoined.split('-')[2]}`}</span>
           </p>
         </div>
       </div>
