@@ -68,6 +68,14 @@ export default function Navbar() {
               Partners
             </Link>
           </li>
+          <li>
+            <Link
+              href="/events"
+              className="hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+            >
+              Events
+            </Link>
+          </li>
         </ul>
 
         <button
@@ -117,7 +125,13 @@ export default function Navbar() {
         >
           Partners
         </Link>
-
+        <Link
+          href="/events"
+          onClick={() => setSidebarOpen(false)}
+          className="text-white font-semibold text-lg hover:text-blue-600 transition scroll-link [&.active]:text-blue-700 [&.active]:font-bold"
+        >
+          Events
+        </Link>
       </div>
     </>
   );

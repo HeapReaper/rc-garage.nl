@@ -48,13 +48,19 @@ export default async function Page() {
                 {event.description}
               </p>
               <p className="mt-2 text-gray-400 text-xs sm:text-sm">
-                <span className="font-semibold">Location:</span> {event.location}
+                <span className="font-semibold">
+                  Locatie:
+                  </span> {event.location}
               </p>
               <p className="text-gray-400 text-xs sm:text-sm">
-                <span className="font-semibold">Creator:</span> {event.creator.username}
+                <span className="font-semibold">
+                  Maker:
+                  </span> {event.creator.username}
               </p>
               <p className="text-gray-400 text-xs sm:text-sm">
-                <span className="font-semibold">Guild:</span> {event.guildName}
+                <span className="font-semibold">
+                  Server:
+                  </span> {event.guildName}
               </p>
             </div>
           </div>
