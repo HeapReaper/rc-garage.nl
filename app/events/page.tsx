@@ -60,7 +60,9 @@ export default async function Page() {
               <p className="text-gray-400 text-xs sm:text-sm">
                 <span className="font-semibold">
                   Server:
-                  </span> {event.guildName}
+                  </span> <a href="https://discord.gg/jHBFgAdbne" target="_blank" className="underline">
+                  {event.guildName}
+                  </a>
               </p>
             </div>
           </div>
