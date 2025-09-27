@@ -37,7 +37,9 @@ export default async function Page() {
                     priority
                   />
                 ) : (
-                  <span>Geen afbeelding beschikbaar...</span>
+                  <span>
+                    Geen afbeelding beschikbaar...
+                  </span>
                 )}
               </div>
 

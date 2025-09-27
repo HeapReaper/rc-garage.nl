@@ -25,14 +25,13 @@ export default async function Partners() {
   return (
     <>
       <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center mt-20">
-        <h1 className="text-5xl font-bold mb-12">
-          Partners
-        </h1>
+        <h1 className="text-5xl font-bold mb-12">Partners</h1>
       </div>
 
       {partners.map((partner: any, index: number) => {
         const imageUrl =
-          process.env.STRAPI_API_URL + `${partner.afbeelding.formats.small.url}`;
+          partner.afbeelding?.formats?.small?.url &&
+          process.env.STRAPI_API_URL + partner.afbeelding.formats.small.url;
 
         const isReversed = index % 2 === 1;
 
@@ -59,7 +58,13 @@ export default async function Partners() {
               >
                 <h2 className="text-3xl font-bold mb-3 text-center ">
                   {partner.link ? (
-                    <a href={partner.link} target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-600 transition-colors duration-400" style={{ textDecorationColor: '#1D4ED8' }}>
+                    <a
+                      href={partner.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white underline hover:text-blue-600 transition-colors duration-400"
+                      style={{ textDecorationColor: "#1D4ED8" }}
+                    >
                       {partner.naam}
                     </a>
                   ) : (
@@ -71,16 +76,18 @@ export default async function Partners() {
                   content={partner.beschrijving || ""}
                   classes="text-center"
                 />
-
               </div>
-              <Image
-                src={imageUrl}
-                width={460}
-                height={360}
-                alt="Partner logo"
-                className="w-full md:w-1/2 rounded-2xl custom-shadow transition-transform duration-300 hover:scale-102"
-                priority
-              />
+
+              {imageUrl && (
+                <Image
+                  src={imageUrl}
+                  width={460}
+                  height={360}
+                  alt="Partner logo"
+                  className="w-full md:w-1/2 rounded-2xl custom-shadow transition-transform duration-300 hover:scale-102"
+                  priority
+                />
+              )}
             </div>
           </section>
         );
