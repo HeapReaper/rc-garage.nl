@@ -13,6 +13,12 @@ const nextConfig = {
         hostname: "cdn.discordapp.com",
         port: "",
         pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        port: "",
+        pathname: "/**",
       }
     ],
   },

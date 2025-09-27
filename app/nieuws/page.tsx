@@ -42,14 +42,26 @@ export default async function News() {
             key={article.id}
             className="block bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
           >
-            <Image
-              src={`${process.env.STRAPI_API_URL}${article.cover.formats.thumbnail.url}`}
-              width={200}
-              height={200}
-              alt={article.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4 text-left">
+            {article.cover && article.cover.formats && article.cover.formats.thumbnail ? (
+              <Image
+                src={`${process.env.STRAPI_API_URL}${article.cover.formats.thumbnail.url}`}
+                width={200}
+                height={200}
+                alt={article.title}
+                className="w-full h-48 object-cover"
+              />
+            ) : (
+              <div className="w-full h-48 bg-gray-800 flex items-center justify-center text-gray-500 text-sm">
+              <Image
+                src="https://placehold.co/200x200"
+                width={200}
+                height={200}
+                alt={article.title}
+                className="w-full h-48 object-cover"
+              />
+              </div>
+            )}
+              <div className="p-4 text-left">
               <h2 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">{article.title}</h2>
               <p className="text-gray-400 text-xs sm:text-sm">{formatDate(article.createdAt)}</p>
               <p
