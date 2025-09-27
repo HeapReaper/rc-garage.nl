@@ -79,7 +79,7 @@ export default async function Partners() {
                 height={360}
                 alt="Partner logo"
                 className="w-full md:w-1/2 rounded-2xl custom-shadow transition-transform duration-300 hover:scale-102"
-                loading="lazy"
+                priority
               />
             </div>
           </section>

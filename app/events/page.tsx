@@ -31,6 +31,7 @@ export default async function Page() {
                   width={400}
                   height={192}
                   className="object-cover w-full h-full"
+                  priority
                 />
               ) : (
                 <span>

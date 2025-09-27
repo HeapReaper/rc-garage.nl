@@ -59,7 +59,7 @@ export default function HeroSection() {
               alt={`Slide ${index + 1}`}
               fill
               className="object-cover w-full h-full"
-              priority={index === 0}
+              priority
             />
           </div>
         ))}

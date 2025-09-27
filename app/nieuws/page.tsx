@@ -49,6 +49,7 @@ export default async function News() {
                 height={200}
                 alt={article.title}
                 className="w-full h-48 object-cover"
+                priority
               />
             ) : (
               <div className="w-full h-48 bg-gray-800 flex items-center justify-center text-gray-500 text-sm">
