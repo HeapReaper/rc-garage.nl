@@ -8,7 +8,9 @@ import GuildStats from "@/components/guildStats";
 export default async function Home() {
   return (
     <>
-      <HeroSection />
+      <div className="min-h-[400px] md:min-h-[350px]">
+        <HeroSection />
+      </div>
 
       <Channels />
 
